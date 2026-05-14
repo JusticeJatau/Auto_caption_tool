@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Subtitle Generator - AI Captions with Highlight Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover, .upload-area.dragover {
+            border-color: #667eea;
+            background: #f5f3ff;
+        }
+
+        .file-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            color: #333;
+            font-weight: 500;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+
+        .file-info {
+            color: #999;
+            font-size: 12px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .settings {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .setting-row label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .setting-row input, .setting-row select {
+            width: 140px;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .style-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .style-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .style-btn.active {
+            border-color: #667eea;
+            background: #f5f3ff;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .style-btn:hover {
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            display: none;
+        }
+
+        .status-card.show {
+            display: block;
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .error-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .download-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-size: 14px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-srt {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-ass {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-reset {
+            background: #6b7280;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fef3c7;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #92400e;
+            text-align: left;
+        }
+
+        .info-box h4 {
+            margin-bottom: 8px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #4338ca;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="uploadCard">
+            <h1>🎬 Subtitle Generator <span class="badge">TikTok Ready</span></h1>
+            <div class="subtitle">AI-powered captions with word highlighting effect</div>
+            
+            <div class="upload-area" id="uploadArea">
+                <div class="file-icon">📁</div>
+                <div class="file-name" id="fileName">Click or drag file here</div>
+                <div class="file-info">MP4, MOV, AVI, MKV, MP3, WAV, M4A, WEBM (Max 500MB)</div>
+                <input type="file" id="fileInput" accept=".mp4,.mov,.avi,.mkv,.mp3,.wav,.m4a,.webm">
+            </div>
+            
+            <div class="settings">
+                <div class="setting-row">
+                    <label>📝 Max Words Per Line:</label>
+                    <input type="number" id="maxWords" value="4" min="1" max="20">
+                </div>
+                <div class="setting-row">
+                    <label>⏱️ Max Duration (seconds):</label>
+                    <input type="number" id="maxDuration" value="4.0" min="0.5" max="10" step="0.5">
+                </div>
+                <div class="setting-row">
+                    <label>🔹 Split on Punctuation:</label>
+                    <select id="splitOnPunctuation">
+                        <option value="true">Yes (Recommended)</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="setting-row">
+                    <label>🤖 Whisper Model:</label>
+                    <select id="model">
+                        <option value="tiny">Tiny (Fastest, 1GB RAM)</option>
+                        <option value="base" selected>Base (Balanced, 1.5GB RAM)</option>
+                        <option value="small">Small (Accurate, 2GB RAM)</option>
+                        <option value="medium">Medium (Very Accurate, 5GB RAM)</option>
+                    </select>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <label style="font-weight: 500; color: #555; display: block; margin-bottom: 10px;">🎨 Subtitle Style:</label>
+                    <div class="style-buttons">
+                        <div class="style-btn active" data-style="tiktok">
+                            🎵 TikTok Highlight (ASS)
+                            <span class="feature-tag">Word Pop</span>
+                        </div>
+                        <div class="style-btn" data-style="standard">
+                            📄 Standard (SRT)
+                            <span class="feature-tag">Universal</span>
+                        </div>
+                        <div class="style-btn" data-style="both">
+                            🔥 Both Formats
+                            <span class="feature-tag">Recommended</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="convertBtn" disabled>🚀 Generate TikTok Subtitles</button>
+        </div>
+
+        <div class="status-card" id="statusCard">
+            <div class="status-message">
+                <div id="statusContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+        let currentJobId = null;
+        let statusInterval = null;
+        let selectedStyle = 'tiktok';
+
+        // DOM elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const convertBtn = document.getElementById('convertBtn');
+        const uploadCard = document.getElementById('uploadCard');
+        const statusCard = document.getElementById('statusCard');
+        const statusContent = document.getElementById('statusContent');
+
+        // Style selection
+        document.querySelectorAll('.style-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedStyle = btn.dataset.style;
+                
+                // Update button text
+                if (selectedStyle === 'tiktok') {
+                    convertBtn.innerHTML = '🎵 Generate TikTok Subtitles (ASS)';
+                } else if (selectedStyle === 'standard') {
+                    convertBtn.innerHTML = '📄 Generate Standard Subtitles (SRT)';
+                } else {
+                    convertBtn.innerHTML = '🔥 Generate Both Formats (SRT + ASS)';
+                }
+            });
+        });
+
+        // Upload area click
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            selectedFile = file;
+            const sizeMB = (file.size / 1024 / 1024).toFixed(2);
+            fileName.innerHTML = `${file.name} <span style="font-size: 11px; color: #999;">(${sizeMB} MB)</span>`;
+            fileName.style.color = '#667eea';
+            convertBtn.disabled = false;
+        }
+
+        // Convert button click
+        convertBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            // Get settings
+            const maxWords = document.getElementById('maxWords').value;
+            const maxDuration = document.getElementById('maxDuration').value;
+            const splitOnPunctuation = document.getElementById('splitOnPunctuation').value;
+            const model = document.getElementById('model').value;
+
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            formData.append('max_words', maxWords);
+            formData.append('max_duration', maxDuration);
+            formData.append('split_on_punctuation', splitOnPunctuation);
+            formData.append('model', model);
+            formData.append('style', selectedStyle);
+
+            // Disable button and show status
+            convertBtn.disabled = true;
+            convertBtn.textContent = '⏳ Processing...';
+            uploadCard.style.display = 'none';
+            statusCard.classList.add('show');
+            
+            // Show loading state
+            statusContent.innerHTML = `
+                <div class="spinner"></div>
+                <div>📤 Uploading your file...</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">This may take a moment</div>
+            `;
+
+            try {
+                // Upload file
+                const response = await fetch('http://localhost:5000/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                currentJobId = data.job_id;
+                
+                // Start polling for status
+                startPolling();
+
+            } catch (error) {
+                showError(error.message);
+            }
+        });
+
+        function startPolling() {
+            if (statusInterval) clearInterval(statusInterval);
+            
+            statusInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`http://localhost:5000/status/${currentJobId}`);
+                    const data = await response.json();
+                    
+                    updateStatus(data);
+                    
+                    if (data.status === 'complete') {
+                        clearInterval(statusInterval);
+                        statusInterval = null;
+                        showDownload(data);
+                    } else if (data.status === 'error') {
+                        clearInterval(statusInterval);
+                        statusInterval = null;
+                        showError(data.message);
+                    }
+                    
+                } catch (error) {
+                    console.error('Status check failed:', error);
+                }
+            }, 1000);
+        }
+
+        function updateStatus(data) {
+            let progress = 20;
+            let icon = '🎬';
+            let message = data.message;
+            
+            if (data.status === 'converting') {
+                progress = 40;
+                icon = '🎵';
+                message = 'Converting audio...';
+            } else if (data.status === 'transcribing') {
+                progress = 60;
+                icon = '🤖';
+                message = 'AI is transcribing...';
+            } else if (data.status === 'generating') {
+                progress = 85;
+                icon = '✨';
+                message = 'Generating TikTok effects...';
+            } else if (data.status === 'complete') {
+                progress = 100;
+            }
+            
+            statusContent.innerHTML = `
+                <div class="spinner"></div>
+                <div style="font-size: 14px; margin-bottom: 10px;">${icon}</div>
+                <div style="font-weight: 500; margin-bottom: 5px;">${message}</div>
+                <div style="font-size: 12px; color: #666;">${data.message || 'Working...'}</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${progress}%"></div>
+                </div>
+            `;
+        }
+
+        function showDownload(data) {
+            let downloadButtons = '';
+            
+            if (data.download_url_srt && data.download_url_ass) {
+                // Both formats available
+                downloadButtons = `
+                    <div class="download-group">
+                        <button class="download-btn btn-srt" onclick="downloadSubtitles('srt')">
+                            📄 Download SRT (Standard)
+                        </button>
+                        <button class="download-btn btn-ass" onclick="downloadSubtitles('ass')">
+                            🎵 Download ASS (TikTok Style)
+                        </button>
+                    </div>
+                `;
+            } else if (data.download_url_ass) {
+                // Only ASS
+                downloadButtons = `
+                    <div class="download-group">
+                        <button class="download-btn btn-ass" onclick="downloadSubtitles('ass')">
+                            🎵 Download ASS (TikTok Style)
+                        </button>
+                    </div>
+                `;
+            } else if (data.download_url_srt) {
+                // Only SRT
+                downloadButtons = `
+                    <div class="download-group">
+                        <button class="download-btn btn-srt" onclick="downloadSubtitles('srt')">
+                            📄 Download SRT (Standard)
+                        </button>
+                    </div>
+                `;
+            }
+            
+            statusContent.innerHTML = `
+                <div class="success-icon">🎉</div>
+                <div style="font-size: 20px; font-weight: 700; margin-bottom: 5px;">
+                    Subtitles Ready!
+                </div>
+                <div style="margin-bottom: 15px; color: #666;">
+                    ${data.subtitle_count} subtitle lines generated
+                </div>
+                ${downloadButtons}
+                <button class="btn-reset" onclick="resetApp()">
+                    🔄 Process Another File
+                </button>
+                <div class="info-box">
+                    <h4>💡 How to use your subtitles:</h4>
+                    <ul>
+                        <li><strong>ASS (TikTok Style):</strong> Import directly into CapCut, Aegisub, or use FFmpeg to burn-in</li>
+                        <li><strong>SRT (Standard):</strong> Works with all video editors, YouTube, VLC</li>
+                        <li><strong>Burn with FFmpeg:</strong> <code>ffmpeg -i video.mp4 -vf "ass=subtitles.ass" output.mp4</code></li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            statusContent.innerHTML = `
+                <div class="error-icon">❌</div>
+                <div style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">
+                    Generation Failed
+                </div>
+                <div style="margin-bottom: 15px; color: #991b1b; font-size: 14px;">
+                    ${message}
+                </div>
+                <button class="btn-reset" onclick="resetApp()">
+                    🔄 Try Again
+                </button>
+                <div class="info-box" style="margin-top: 15px; background: #fee2e2;">
+                    <strong>Common fixes:</strong><br>
+                    • Make sure FFmpeg is installed<br>
+                    • Try a smaller audio/video file<br>
+                    • Switch to "tiny" Whisper model<br>
+                    • Check backend is running on port 5000
+                </div>
+            `;
+        }
+
+        window.downloadSubtitles = async function(format) {
+            if (!currentJobId) return;
+            
+            window.location.href = `http://localhost:5000/download/${currentJobId}/${format}`;
+            
+            // Show downloading notification
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '⏳ Downloading...';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+            
+            // Clean up after 5 seconds
+            setTimeout(async () => {
+                await fetch(`http://localhost:5000/cleanup/${currentJobId}`, {
+                    method: 'DELETE'
+                });
+            }, 5000);
+        }
+
+        function resetApp() {
+            if (statusInterval) clearInterval(statusInterval);
+            selectedFile = null;
+            currentJobId = null;
+            fileInput.value = '';
+            fileName.innerHTML = 'Click or drag file here';
+            fileName.style.color = '';
+            convertBtn.disabled = true;
+            
+            // Restore button text based on selected style
+            if (selectedStyle === 'tiktok') {
+                convertBtn.innerHTML = '🎵 Generate TikTok Subtitles (ASS)';
+            } else if (selectedStyle === 'standard') {
+                convertBtn.innerHTML = '📄 Generate Standard Subtitles (SRT)';
+            } else {
+                convertBtn.innerHTML = '🔥 Generate Both Formats (SRT + ASS)';
+            }
+            
+            uploadCard.style.display = 'block';
+            statusCard.classList.remove('show');
+        }
+    </script>
+</body>
+</html>
