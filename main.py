@@ -1,5 +1,7 @@
 import sys
 import whisper
+from exporters.srt_exporter import save_srt
+from exporters.vtt_exporter import save_vtt
 
 if len(sys.argv) < 2:
     print("Usage: python subtitle.py audio.mp3")
@@ -18,27 +20,65 @@ result = model.transcribe(
     word_timestamps=True
 )
 
-# segments = result['segments'][0]['words']
-# segments = result['segments']
-# words = segments['words']
+MAX_WORDS = 5 #Max word to display
+PUNTUATION_MARKS = {'.','?',',',';',':'}  # Puntuations to watch out for for good breaking
+PAUSE_THRESHOLD = 0.5   # Seconds to break if gaps is larger than this 
 
-# for w in segments:
-#     print(f"word: {w['words']}, start: {w['start']}, end: {w['end']}\n")
+def push_to_chunks(current, chunks):
+    chunks.append({
+        'text': current['text'],
+        'start': current['start'],
+        'end': current['end']
+    })
 
-# # print(segments[0])
+chunks = []
+previous_end_time = None
+current = {
+    'text': '',
+    'start': None,
+    'end': None,
+}
 
-# segments = result['segments']
+segments = result['segments']
 
-# # for segment in segments:
-# #     for word in segment['words']:
-# #         print(word)
+for segment in segments:
+    for words in segment['words']:
+        should_break = False
+        text = words['word']
+        start = words['start']
+        end = words['end']
 
-# # Phase 1 - Basic SRT 
-# for segment in segments:
-#     print(segment['text'])
+        if current['text']:
+            current['text'] += ' ' + text.strip()
+        else:
+            current['text'] = text
 
+        if current['start'] is None:
+            current['start'] = start
+        
+        current['end'] = end
 
-# Formatting the time
+        # Check for pause
+        pause_detected = False
+        if previous_end_time is not None:
+            gap = current['start'] - previous_end_time
+            if(gap > PAUSE_THRESHOLD):
+                print(f"Gap: {gap} word: {text} start: {start} end: {end} previous end: {previous_end_time}")
+                pause_detected = True
+
+        # Check for max-word and punctuation
+        end_with_punctuation = text and text[-1] in PUNTUATION_MARKS
+
+        if pause_detected or end_with_punctuation or len(current['text'].split()) >= MAX_WORDS:
+            push_to_chunks(current, chunks)
+
+            current = {'text':'','start': None,'end': None}
+        
+        previous_end_time = end
+
+if len(current['text'].split()) > 0:
+    push_to_chunks(current, chunks)
+
 def format_time(seconds):
     hours = int(seconds // 3600)
     minutes = int((seconds % 3600) // 60)
@@ -47,35 +87,9 @@ def format_time(seconds):
 
     return f"{hours:02}:{minutes:02}:{secs:02},{milisec:03}"
 
-print(format_time(10000))
 
+print(f"Created {len(chunks)} Chunks\n")
 
-# Writing in a file
-# But before that i need to store my segment in an array/list of dictionaries/object
-# e.g subtitles = [
-#         {
-#           "start":1,
-#           "end":3,
-#           "text":"Hello World"
-#         }
-# ]
-
-# Or we just do the formatting directly to give the output
-
-segments = result['segments']
-# subtitles = []
-
-# for i,segment in enumerate(segments, start = 1):
-#     print(f"{i}\n{format_time(segment['start'])} --> {format_time(segment['end'])}\n{segment['text']}")
-
-# Now having the correct output
-# We can now write it in a file
-
-print("Writing SRT file....")
-
-with open(f"{audio_file}.srt", "w", encoding="utf-8") as f:
-    for i, segment in enumerate(segments, start = 1):
-        f.write(f"{i}\n")
-        f.write(f"{format_time(segment['start'])} --> {format_time(segment['end'])}\n")
-        f.write(f"{segment['text']}\n\n")
-
+save_vtt(chunks)
+save_srt(chunks)
+    
