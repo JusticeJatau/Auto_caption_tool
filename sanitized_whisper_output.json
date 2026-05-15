@@ -1,0 +1,852 @@
+{
+    "text": "Banks do not deposit money. You do not deposit money into the banks. When you give the money in the bank, you're loaning the bank money. That's why you have an interest return. Once you get an interest return, that money is no longer an asset. It's a liability. And then they take that liability. And they create credit. They are in the business of buying and selling securities. They're not in the business of storing your money. So once you understand that they're not in the business of storing your money, then you need to store your money. So what are you going to store your money into monopoly? Paper that they've been told brings value. We're going to find an alternative system. The intelligent person that values their time, energy and attention because it's a finite resource and they want to maintain that into the near future, they will find an alternative system.",
+    "segments": [
+        {
+            "id": 0,
+            "start": 0.0,
+            "end": 7.06,
+            "text": "Banks do not deposit money. You do not deposit money into the banks. When you give the money in the bank,",
+            "words": [
+                {
+                    "word": "Banks",
+                    "start": 0.0,
+                    "end": 0.4
+                },
+                {
+                    "word": "do",
+                    "start": 0.4,
+                    "end": 0.8
+                },
+                {
+                    "word": "not",
+                    "start": 0.8,
+                    "end": 1.1
+                },
+                {
+                    "word": "deposit",
+                    "start": 1.1,
+                    "end": 1.96
+                },
+                {
+                    "word": "money.",
+                    "start": 1.96,
+                    "end": 2.36
+                },
+                {
+                    "word": "You",
+                    "start": 2.64,
+                    "end": 2.68
+                },
+                {
+                    "word": "do",
+                    "start": 2.68,
+                    "end": 2.8
+                },
+                {
+                    "word": "not",
+                    "start": 2.8,
+                    "end": 2.96
+                },
+                {
+                    "word": "deposit",
+                    "start": 2.96,
+                    "end": 3.48
+                },
+                {
+                    "word": "money",
+                    "start": 3.48,
+                    "end": 3.86
+                },
+                {
+                    "word": "into",
+                    "start": 3.86,
+                    "end": 4.08
+                },
+                {
+                    "word": "the",
+                    "start": 4.08,
+                    "end": 4.2
+                },
+                {
+                    "word": "banks.",
+                    "start": 4.2,
+                    "end": 4.46
+                },
+                {
+                    "word": "When",
+                    "start": 4.78,
+                    "end": 4.98
+                },
+                {
+                    "word": "you",
+                    "start": 4.98,
+                    "end": 5.16
+                },
+                {
+                    "word": "give",
+                    "start": 5.16,
+                    "end": 5.52
+                },
+                {
+                    "word": "the",
+                    "start": 5.52,
+                    "end": 6.18
+                },
+                {
+                    "word": "money",
+                    "start": 6.18,
+                    "end": 6.42
+                },
+                {
+                    "word": "in",
+                    "start": 6.42,
+                    "end": 6.66
+                },
+                {
+                    "word": "the",
+                    "start": 6.66,
+                    "end": 6.78
+                },
+                {
+                    "word": "bank,",
+                    "start": 6.78,
+                    "end": 7.06
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "start": 7.44,
+            "end": 13.04,
+            "text": "you're loaning the bank money. That's why you have an interest return. Once you get an interest return,",
+            "words": [
+                {
+                    "word": "you're",
+                    "start": 7.44,
+                    "end": 7.76
+                },
+                {
+                    "word": "loaning",
+                    "start": 7.76,
+                    "end": 8.26
+                },
+                {
+                    "word": "the",
+                    "start": 8.26,
+                    "end": 8.7
+                },
+                {
+                    "word": "bank",
+                    "start": 8.7,
+                    "end": 9.0
+                },
+                {
+                    "word": "money.",
+                    "start": 9.0,
+                    "end": 9.54
+                },
+                {
+                    "word": "That's",
+                    "start": 9.86,
+                    "end": 10.08
+                },
+                {
+                    "word": "why",
+                    "start": 10.08,
+                    "end": 10.18
+                },
+                {
+                    "word": "you",
+                    "start": 10.18,
+                    "end": 10.3
+                },
+                {
+                    "word": "have",
+                    "start": 10.3,
+                    "end": 10.38
+                },
+                {
+                    "word": "an",
+                    "start": 10.38,
+                    "end": 10.52
+                },
+                {
+                    "word": "interest",
+                    "start": 10.52,
+                    "end": 10.92
+                },
+                {
+                    "word": "return.",
+                    "start": 10.92,
+                    "end": 11.34
+                },
+                {
+                    "word": "Once",
+                    "start": 11.82,
+                    "end": 11.96
+                },
+                {
+                    "word": "you",
+                    "start": 11.96,
+                    "end": 12.08
+                },
+                {
+                    "word": "get",
+                    "start": 12.08,
+                    "end": 12.18
+                },
+                {
+                    "word": "an",
+                    "start": 12.18,
+                    "end": 12.3
+                },
+                {
+                    "word": "interest",
+                    "start": 12.3,
+                    "end": 12.56
+                },
+                {
+                    "word": "return,",
+                    "start": 12.56,
+                    "end": 13.04
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "start": 13.38,
+            "end": 17.74,
+            "text": "that money is no longer an asset. It's a liability. And then they take that liability.",
+            "words": [
+                {
+                    "word": "that",
+                    "start": 13.38,
+                    "end": 13.6
+                },
+                {
+                    "word": "money",
+                    "start": 13.6,
+                    "end": 13.88
+                },
+                {
+                    "word": "is",
+                    "start": 13.88,
+                    "end": 14.02
+                },
+                {
+                    "word": "no",
+                    "start": 14.02,
+                    "end": 14.14
+                },
+                {
+                    "word": "longer",
+                    "start": 14.14,
+                    "end": 14.42
+                },
+                {
+                    "word": "an",
+                    "start": 14.42,
+                    "end": 14.54
+                },
+                {
+                    "word": "asset.",
+                    "start": 14.54,
+                    "end": 14.88
+                },
+                {
+                    "word": "It's",
+                    "start": 15.36,
+                    "end": 15.54
+                },
+                {
+                    "word": "a",
+                    "start": 15.54,
+                    "end": 15.56
+                },
+                {
+                    "word": "liability.",
+                    "start": 15.56,
+                    "end": 15.92
+                },
+                {
+                    "word": "And",
+                    "start": 16.6,
+                    "end": 16.72
+                },
+                {
+                    "word": "then",
+                    "start": 16.72,
+                    "end": 16.84
+                },
+                {
+                    "word": "they",
+                    "start": 16.84,
+                    "end": 16.96
+                },
+                {
+                    "word": "take",
+                    "start": 16.96,
+                    "end": 17.1
+                },
+                {
+                    "word": "that",
+                    "start": 17.1,
+                    "end": 17.26
+                },
+                {
+                    "word": "liability.",
+                    "start": 17.26,
+                    "end": 17.74
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "start": 18.76,
+            "end": 24.18,
+            "text": "And they create credit. They are in the business of buying and selling securities. They're not in the business of storing your money.",
+            "words": [
+                {
+                    "word": "And",
+                    "start": 18.76,
+                    "end": 19.22
+                },
+                {
+                    "word": "they",
+                    "start": 19.22,
+                    "end": 19.3
+                },
+                {
+                    "word": "create",
+                    "start": 19.3,
+                    "end": 19.52
+                },
+                {
+                    "word": "credit.",
+                    "start": 19.52,
+                    "end": 19.78
+                },
+                {
+                    "word": "They",
+                    "start": 20.16,
+                    "end": 20.38
+                },
+                {
+                    "word": "are",
+                    "start": 20.38,
+                    "end": 20.52
+                },
+                {
+                    "word": "in",
+                    "start": 20.52,
+                    "end": 20.62
+                },
+                {
+                    "word": "the",
+                    "start": 20.62,
+                    "end": 20.72
+                },
+                {
+                    "word": "business",
+                    "start": 20.72,
+                    "end": 21.0
+                },
+                {
+                    "word": "of",
+                    "start": 21.0,
+                    "end": 21.22
+                },
+                {
+                    "word": "buying",
+                    "start": 21.22,
+                    "end": 21.44
+                },
+                {
+                    "word": "and",
+                    "start": 21.44,
+                    "end": 21.58
+                },
+                {
+                    "word": "selling",
+                    "start": 21.58,
+                    "end": 21.82
+                },
+                {
+                    "word": "securities.",
+                    "start": 21.82,
+                    "end": 22.32
+                },
+                {
+                    "word": "They're",
+                    "start": 22.32,
+                    "end": 22.5
+                },
+                {
+                    "word": "not",
+                    "start": 22.5,
+                    "end": 22.62
+                },
+                {
+                    "word": "in",
+                    "start": 22.62,
+                    "end": 22.76
+                },
+                {
+                    "word": "the",
+                    "start": 22.76,
+                    "end": 22.84
+                },
+                {
+                    "word": "business",
+                    "start": 22.84,
+                    "end": 23.14
+                },
+                {
+                    "word": "of",
+                    "start": 23.14,
+                    "end": 23.46
+                },
+                {
+                    "word": "storing",
+                    "start": 23.46,
+                    "end": 23.8
+                },
+                {
+                    "word": "your",
+                    "start": 23.8,
+                    "end": 23.94
+                },
+                {
+                    "word": "money.",
+                    "start": 23.94,
+                    "end": 24.18
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "start": 24.44,
+            "end": 28.98,
+            "text": "So once you understand that they're not in the business of storing your money, then you need to store your money.",
+            "words": [
+                {
+                    "word": "So",
+                    "start": 24.44,
+                    "end": 24.76
+                },
+                {
+                    "word": "once",
+                    "start": 24.76,
+                    "end": 24.92
+                },
+                {
+                    "word": "you",
+                    "start": 24.92,
+                    "end": 25.0
+                },
+                {
+                    "word": "understand",
+                    "start": 25.0,
+                    "end": 25.36
+                },
+                {
+                    "word": "that",
+                    "start": 25.36,
+                    "end": 25.68
+                },
+                {
+                    "word": "they're",
+                    "start": 25.68,
+                    "end": 25.88
+                },
+                {
+                    "word": "not",
+                    "start": 25.88,
+                    "end": 26.0
+                },
+                {
+                    "word": "in",
+                    "start": 26.0,
+                    "end": 26.14
+                },
+                {
+                    "word": "the",
+                    "start": 26.14,
+                    "end": 26.22
+                },
+                {
+                    "word": "business",
+                    "start": 26.22,
+                    "end": 26.42
+                },
+                {
+                    "word": "of",
+                    "start": 26.42,
+                    "end": 26.64
+                },
+                {
+                    "word": "storing",
+                    "start": 26.64,
+                    "end": 26.86
+                },
+                {
+                    "word": "your",
+                    "start": 26.86,
+                    "end": 27.0
+                },
+                {
+                    "word": "money,",
+                    "start": 27.0,
+                    "end": 27.22
+                },
+                {
+                    "word": "then",
+                    "start": 27.52,
+                    "end": 27.66
+                },
+                {
+                    "word": "you",
+                    "start": 27.66,
+                    "end": 27.9
+                },
+                {
+                    "word": "need",
+                    "start": 27.9,
+                    "end": 28.14
+                },
+                {
+                    "word": "to",
+                    "start": 28.14,
+                    "end": 28.3
+                },
+                {
+                    "word": "store",
+                    "start": 28.3,
+                    "end": 28.56
+                },
+                {
+                    "word": "your",
+                    "start": 28.56,
+                    "end": 28.7
+                },
+                {
+                    "word": "money.",
+                    "start": 28.7,
+                    "end": 28.98
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "start": 28.98,
+            "end": 31.3,
+            "text": "So what are you going to store your money into monopoly?",
+            "words": [
+                {
+                    "word": "So",
+                    "start": 28.98,
+                    "end": 29.62
+                },
+                {
+                    "word": "what",
+                    "start": 29.62,
+                    "end": 29.78
+                },
+                {
+                    "word": "are",
+                    "start": 29.78,
+                    "end": 29.84
+                },
+                {
+                    "word": "you",
+                    "start": 29.84,
+                    "end": 29.9
+                },
+                {
+                    "word": "going",
+                    "start": 29.9,
+                    "end": 29.98
+                },
+                {
+                    "word": "to",
+                    "start": 29.98,
+                    "end": 30.04
+                },
+                {
+                    "word": "store",
+                    "start": 30.04,
+                    "end": 30.24
+                },
+                {
+                    "word": "your",
+                    "start": 30.24,
+                    "end": 30.36
+                },
+                {
+                    "word": "money",
+                    "start": 30.36,
+                    "end": 30.52
+                },
+                {
+                    "word": "into",
+                    "start": 30.52,
+                    "end": 30.78
+                },
+                {
+                    "word": "monopoly?",
+                    "start": 30.78,
+                    "end": 31.3
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "start": 32.18,
+            "end": 36.48,
+            "text": "Paper that they've been told brings value. We're going to find an alternative system.",
+            "words": [
+                {
+                    "word": "Paper",
+                    "start": 32.18,
+                    "end": 32.68
+                },
+                {
+                    "word": "that",
+                    "start": 32.68,
+                    "end": 32.98
+                },
+                {
+                    "word": "they've",
+                    "start": 32.98,
+                    "end": 33.3
+                },
+                {
+                    "word": "been",
+                    "start": 33.3,
+                    "end": 33.4
+                },
+                {
+                    "word": "told",
+                    "start": 33.4,
+                    "end": 33.78
+                },
+                {
+                    "word": "brings",
+                    "start": 33.78,
+                    "end": 34.26
+                },
+                {
+                    "word": "value.",
+                    "start": 34.26,
+                    "end": 34.72
+                },
+                {
+                    "word": "We're",
+                    "start": 35.02,
+                    "end": 35.26
+                },
+                {
+                    "word": "going",
+                    "start": 35.26,
+                    "end": 35.38
+                },
+                {
+                    "word": "to",
+                    "start": 35.38,
+                    "end": 35.4
+                },
+                {
+                    "word": "find",
+                    "start": 35.4,
+                    "end": 35.58
+                },
+                {
+                    "word": "an",
+                    "start": 35.58,
+                    "end": 35.72
+                },
+                {
+                    "word": "alternative",
+                    "start": 35.72,
+                    "end": 35.94
+                },
+                {
+                    "word": "system.",
+                    "start": 35.94,
+                    "end": 36.48
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "start": 36.9,
+            "end": 44.64,
+            "text": "The intelligent person that values their time, energy and attention because it's a finite resource and they want to maintain that into the near future,",
+            "words": [
+                {
+                    "word": "The",
+                    "start": 36.9,
+                    "end": 37.02
+                },
+                {
+                    "word": "intelligent",
+                    "start": 37.02,
+                    "end": 37.54
+                },
+                {
+                    "word": "person",
+                    "start": 37.54,
+                    "end": 38.06
+                },
+                {
+                    "word": "that",
+                    "start": 38.06,
+                    "end": 38.28
+                },
+                {
+                    "word": "values",
+                    "start": 38.28,
+                    "end": 38.68
+                },
+                {
+                    "word": "their",
+                    "start": 38.68,
+                    "end": 38.86
+                },
+                {
+                    "word": "time,",
+                    "start": 38.86,
+                    "end": 39.14
+                },
+                {
+                    "word": "energy",
+                    "start": 39.34,
+                    "end": 39.58
+                },
+                {
+                    "word": "and",
+                    "start": 39.58,
+                    "end": 39.66
+                },
+                {
+                    "word": "attention",
+                    "start": 39.66,
+                    "end": 40.08
+                },
+                {
+                    "word": "because",
+                    "start": 40.08,
+                    "end": 40.66
+                },
+                {
+                    "word": "it's",
+                    "start": 40.66,
+                    "end": 40.96
+                },
+                {
+                    "word": "a",
+                    "start": 40.96,
+                    "end": 41.16
+                },
+                {
+                    "word": "finite",
+                    "start": 41.16,
+                    "end": 41.6
+                },
+                {
+                    "word": "resource",
+                    "start": 41.6,
+                    "end": 42.04
+                },
+                {
+                    "word": "and",
+                    "start": 42.04,
+                    "end": 42.4
+                },
+                {
+                    "word": "they",
+                    "start": 42.4,
+                    "end": 42.48
+                },
+                {
+                    "word": "want",
+                    "start": 42.48,
+                    "end": 42.6
+                },
+                {
+                    "word": "to",
+                    "start": 42.6,
+                    "end": 42.68
+                },
+                {
+                    "word": "maintain",
+                    "start": 42.68,
+                    "end": 43.06
+                },
+                {
+                    "word": "that",
+                    "start": 43.06,
+                    "end": 43.32
+                },
+                {
+                    "word": "into",
+                    "start": 43.32,
+                    "end": 43.96
+                },
+                {
+                    "word": "the",
+                    "start": 43.96,
+                    "end": 44.14
+                },
+                {
+                    "word": "near",
+                    "start": 44.14,
+                    "end": 44.26
+                },
+                {
+                    "word": "future,",
+                    "start": 44.26,
+                    "end": 44.64
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "start": 44.96,
+            "end": 46.44,
+            "text": "they will find an alternative system.",
+            "words": [
+                {
+                    "word": "they",
+                    "start": 44.96,
+                    "end": 45.3
+                },
+                {
+                    "word": "will",
+                    "start": 45.3,
+                    "end": 45.4
+                },
+                {
+                    "word": "find",
+                    "start": 45.4,
+                    "end": 45.62
+                },
+                {
+                    "word": "an",
+                    "start": 45.62,
+                    "end": 45.72
+                },
+                {
+                    "word": "alternative",
+                    "start": 45.72,
+                    "end": 46.0
+                },
+                {
+                    "word": "system.",
+                    "start": 46.0,
+                    "end": 46.44
+                }
+            ]
+        }
+    ]
+}
